@@ -1,0 +1,36 @@
+{
+  "name": "effect-phrases",
+  "version": "1.0.0",
+  "description": "Frases 'profundas' do escritorio, servidas por uma API em Effect.",
+  "scripts": {
+    "dev": "vercel dev",
+    "typecheck": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrieldias102/effect-phrases.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/gabrieldias102/effect-phrases/issues"
+  },
+  "homepage": "https://github.com/gabrieldias102/effect-phrases#readme",
+  "dependencies": {
+    "@effect/sql": "^0.52.1",
+    "@effect/sql-pg": "^0.53.0",
+    "dotenv": "^17.4.2",
+    "effect": "^3.22.2",
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.3",
+    "@types/pg": "^8.23.1",
+    "@vercel/node": "^13.0.1",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vercel": "^59.20.0"
+  }
+}

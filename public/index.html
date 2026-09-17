@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Máximas Corporativas</title>
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="stage">
+    <div class="mark">&ldquo;</div>
+
+    <blockquote id="quote" class="quote">
+      <p id="quote-text" class="quote-text">Carregando sabedoria...</p>
+      <footer class="quote-footer">
+        <span class="line"></span>
+        <cite id="quote-author">—</cite>
+      </footer>
+    </blockquote>
+
+    <div class="controls">
+      <button id="prev-btn" class="ctrl" title="Anterior" aria-label="Frase anterior">&#8592;</button>
+      <button id="pause-btn" class="ctrl" title="Pausar/retomar" aria-label="Pausar ou retomar">&#10073;&#10073;</button>
+      <button id="next-btn" class="ctrl" title="Próxima" aria-label="Próxima frase">&#8594;</button>
+    </div>
+
+    <div class="progress" id="progress"><div class="progress-bar" id="progress-bar"></div></div>
+  </main>
+
+  <footer class="signature">Compêndio Não Oficial de Sabedoria de Escritório</footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

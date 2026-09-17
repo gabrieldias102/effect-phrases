@@ -1,0 +1,187 @@
+:root {
+  --bg-0: #0b0d12;
+  --bg-1: #12151d;
+  --ink-0: #f1ede4;
+  --ink-1: #a9a49a;
+  --gold: #c9a24b;
+  --line: rgba(201, 162, 75, 0.25);
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Inter", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(201, 162, 75, 0.08), transparent 60%),
+    linear-gradient(180deg, var(--bg-0), var(--bg-1));
+  color: var(--ink-0);
+  font-family: var(--sans);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6vh 6vw;
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2.5rem;
+}
+
+.mark {
+  font-family: var(--serif);
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.5;
+  font-style: italic;
+  user-select: none;
+}
+
+.quote {
+  margin: 0;
+  min-height: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.quote-text {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.quote-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quote-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.15s;
+}
+
+.quote-footer.visible {
+  opacity: 1;
+}
+
+.quote-footer .line {
+  width: 2.5rem;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.quote-footer cite {
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-1);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.ctrl {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink-1);
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease, color 0.25s ease, transform 0.15s ease;
+}
+
+.ctrl:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.ctrl:active {
+  transform: scale(0.94);
+}
+
+#pause-btn {
+  font-size: 0.7rem;
+}
+
+.progress {
+  width: 100%;
+  max-width: 320px;
+  height: 2px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+  border-radius: 999px;
+}
+
+.progress-bar.animate {
+  transition: width linear;
+}
+
+.signature {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-1);
+  opacity: 0.5;
+}
+
+@media (max-width: 560px) {
+  .mark {
+    font-size: 4rem;
+  }
+
+  .quote {
+    min-height: 14rem;
+  }
+}
