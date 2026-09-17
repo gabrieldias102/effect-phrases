@@ -1,4 +1,5 @@
 const ROTATE_MS = 8000;
+const FADE_MS = 600; // must match the quote-text/quote-footer transition duration in style.css
 
 const textEl = document.getElementById("quote-text");
 const authorEl = document.getElementById("quote-author");
@@ -46,9 +47,11 @@ function render(phrase) {
   setTimeout(() => {
     textEl.textContent = phrase.text;
     authorEl.textContent = phrase.author;
+    // force reflow so the fade-in transition always restarts from the same hidden state
+    void textEl.offsetWidth;
     textEl.classList.add("visible");
     footerEl.classList.add("visible");
-  }, 250);
+  }, FADE_MS);
 }
 
 function show(step) {
