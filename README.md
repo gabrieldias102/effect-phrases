@@ -30,7 +30,7 @@ docker run -d --name effect-phrases-pg -e POSTGRES_PASSWORD=postgres -e POSTGRES
 Crie um `.env.local` na raiz do projeto:
 
 ```
-POSTGRES_URL=postgres://postgres:postgres@localhost:5432/phrases
+STORAGE_POSTGRES_URL=postgres://postgres:postgres@localhost:5432/phrases
 ```
 
 **B) Usar o mesmo Postgres da Vercel (depois de configurar o deploy, veja abaixo):**
@@ -50,6 +50,15 @@ npm run dev    # roda `vercel dev`, emulando localmente API + estáticos como na
 Abra http://localhost:3000 — as frases trocam sozinhas a cada 8s. Setas do
 teclado (`←`/`→`) navegam manualmente, `espaço` pausa/retoma.
 
+## Publicando na Vercel (subdomínio, ex: frases.gdias.dev.br)
+
+1. Suba este repositório para o GitHub (ou GitLab/Bitbucket).
+2. No dashboard da Vercel, "Add New Project" e importe o repositório. Framework preset: "Other" (sem build step necessário).
+3. Na aba **Storage** do projeto, clique em "Create Database" → **Postgres** (Neon). A Vercel injeta automaticamente a variável `STORAGE_POSTGRES_URL` no projeto.
+4. Rode `npx vercel env pull .env.local` localmente e depois `npm run seed` para popular esse banco de produção com as frases iniciais.
+5. Faça o deploy (push no GitHub já dispara, ou `npx vercel --prod`).
+6. Em **Settings → Domains**, adicione `frases.gdias.dev.br` (ou o subdomínio que preferir). A Vercel mostra um registro DNS (CNAME, geralmente `cname.vercel-dns.com`) para você criar onde o DNS de `gdias.dev.br` estiver gerenciado.
+
 ## API
 
 - `GET /api/phrases` — lista todas as frases.
@@ -62,5 +71,5 @@ Variables) e envie o header `x-api-key` nas requisições de escrita.
 
 ## Variáveis de ambiente
 
-- `POSTGRES_URL` — connection string do Postgres (obrigatória).
+- `STORAGE_POSTGRES_URL` — connection string do Postgres (obrigatória).
 - `PHRASES_API_KEY` — se definida, exige o header `x-api-key` no `POST /api/phrases`.
