@@ -26,6 +26,7 @@ function shuffle(list) {
 
 function startProgress() {
   progressBar.classList.remove("animate");
+  progressBar.style.transitionDuration = "0s";
   progressBar.style.width = "0%";
   // force reflow so the transition restarts
   void progressBar.offsetWidth;
